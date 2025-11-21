@@ -1,14 +1,13 @@
 package t;
 import java.util.Scanner;
 
-// Member of our group : Talal-Lafi & Faisal-Albishi & Abdullah-Alutaibi
-// اسم الكلاس يجب أن يطابق اسم الملف المطلوب تسليمه
+// Group Members: Talal, Faisal, Abdullah
+// GitHub Repository Link: https://github.com/TalalLafi/LibrarySimulator/edit/LibrarySimulation/LibrarySimulator.java/src/t/LibrarySimulator.java
 public class LibrarySimulator { 
     public static void main(String args[]) {  
         Scanner input = new Scanner(System.in);
         
-        // --- 1. إنشاء الكائنات (Objects) ---
-        // بدلاً من كل المتغيرات القديمة، ننشئ 3 كائنات فقط
+
         
         final int ID_1 = 1;
         final String UserName1 = "Faisal";
@@ -21,9 +20,6 @@ public class LibrarySimulator {
         final int ID_3 = 3;
         final String UserName3 = "Abdullah";
         Member member3 = new Member(ID_3, UserName3, 0); // كائن العضو الثالث
-
-        // --- تم حذف جميع متغيرات الإحصائيات العامة ---
-        // لأنها موجودة الآن داخل كلاس Member (مثل Member.TotalRevenue)
         
         boolean running = true;
         
@@ -39,8 +35,7 @@ public class LibrarySimulator {
             int choice = input.nextInt();
             input.nextLine(); // Cosume newLine
             
-            // --- 2. تبسيط عملية "تسجيل الدخول" ---
-            // بدلاً من نسخ 10 متغيرات، نمرر "مرجع" للكائن الحالي فقط
+
             Member currentMember = null; // سيشير هذا إلى العضو الذي سجل الدخول
             
             if (choice >= 1 && choice <= 3) {
@@ -55,7 +50,6 @@ public class LibrarySimulator {
 
                 boolean sessionActive = true;
                 while (sessionActive) {
-                    // نستخدم Getter للحصول على الاسم من الكائن مباشرة
                     System.out.println("\n--- Welcome "+ currentMember.getName() + "----"); 
                     System.out.println("1. View Borrowed Books Count");
                     System.out.println("2. Borrow A Book");
@@ -66,33 +60,31 @@ public class LibrarySimulator {
                     int userOption = input.nextInt();
                     input.nextLine(); // Consume newline
 
-                    // --- 3. تبسيط العمليات (Switch) ---
-                    // كل case أصبح يستدعي دالة واحدة فقط من كلاس Member
+             
                     switch (userOption) {
                         case 1:
                             // View Current Borrowed Books
-                            currentMember.viewBorrowedCount(); // الكائن يقوم بالطباعة وتحديث الإحصائيات
+                            currentMember.viewBorrowedCount(); 
                             break;
 
                         case 2:
                             // Borrowing a book
-                            currentMember.borrowOne(); // الكائن يقوم بكل شيء: التحقق، الخصم، تحديث الإحصائيات
-                            break; // (ملاحظة: أضفت 'break' هنا، كانت مفقودة في كودك الأصلي)
+                            currentMember.borrowOne(); 
+                            break; 
 
                         case 3:
                             // Returning a book
-                            currentMember.returnOne(); // الكائن يقوم بالتحقق وتحديث الإحصائيات
+                            currentMember.returnOne(); 
                             break;
                             
                         case 4:
                             // Session Summary
-                            currentMember.displayStatistics(); // الكائن يطبع إحصائياته الخاصة
+                            currentMember.displayStatistics(); 
                             break;
                             
                         case 5:
-                            // --- 4. حذف عملية "تسجيل الخروج" المعقدة ---
-                            // لا نحتاج لحفظ البيانات، لأن التعديلات تمت على الكائن الأصلي مباشرة
-                            sessionActive = false; // session Loop
+ 
+                            sessionActive = false; 
                             System.out.println("Logging out and returning to the Main Menu");
                             break;	
                         
@@ -106,9 +98,7 @@ public class LibrarySimulator {
                 System.out.print("Enter Admin Password: ");
                 String password = input.nextLine(); 
                 
-                if (password.equals("Admin")) { // (الأفضل "Admin" وليس "Admin ")
-                    // --- 5. تحديث لوحة التحكم ---
-                    // نقرأ الإحصائيات العامة مباشرة من كلاس Member
+                if (password.equals("Admin")) { 
                     System.out.println("\n--- Administrator Panel ---");
                     System.out.printf("Total Library Revenue: $%.2f\n", Member.TotalRevenue);
                     System.out.println("Total Books Borrowed (Global): " + Member.TotalBorrows);
@@ -116,7 +106,6 @@ public class LibrarySimulator {
                     System.out.println("Total 'View Count' (Global): " + Member.TotalViewBorrowed); // إحصائية جديدة
                     
                     System.out.println("\n--- User Statistics ---");
-                    // (نفترض أن لديك getters في كلاس Member كما في ردي السابق)
                     System.out.println(member1.getName() + " (ID:" + member1.getId() + "): Currently Borrowed = " + member1.getBorrowedCount());
                     System.out.println(member2.getName() + " (ID:" + member2.getId() + "): Currently Borrowed = " + member2.getBorrowedCount());
                     System.out.println(member3.getName() + " (ID:" + member3.getId() + "): Currently Borrowed = " + member3.getBorrowedCount());
@@ -127,7 +116,7 @@ public class LibrarySimulator {
             }
             else if (choice == 5) {
                 System.out.println("Thank u and see ya later boyys");
-                running = false; // Exit The Main loop
+                running = false;
             }
             else {
                 System.out.println("Invalid Option. Please choose between 1 and 5.");
