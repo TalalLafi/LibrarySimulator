@@ -2,7 +2,7 @@ package t;
 import java.util.Scanner;
 //f
 // Group Members: Talal, Faisal, Abdullah
-// GitHub Repository Link: https://github.com/TalalLafi/LibrarySimulator/edit/LibrarySimulation/LibrarySimulator.java/src/t/LibrarySimulator.java
+// GitHub Repository Link: https://github.com/TalalLafi/LibrarySimulator
 public class LibrarySimulator { 
     public static void main(String args[]) {  
         Scanner input = new Scanner(System.in);
