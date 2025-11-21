@@ -1,8 +1,8 @@
 package t;
 public class Member {
 
-    // --- 1. الخصائص (Attributes) ---
-
+// Group Members: Talal, Faisal, Abdullah
+// GitHub Repository Link: https://github.com/TalalLafi/LibrarySimulator
     private int id;
     private String name;
     private int borrowedCount;
